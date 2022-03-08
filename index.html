@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="main">
+			<div class="form">
+				<input type="text" id="policy" class="policy" placeholder="Enter Policy Number" /> <br />
+				<input type="text" id="email" class="email" placeholder="Enter Email Address" /> <br />
+				<input type="text" id="phone" class="phone" placeholder="Enter Phone Number" /> <br />
+				<button onclick="createMeeting()" class="send">Submit</button>
+			</div>
+		</div>
+
+		<script>
+			const createMeeting = async () => {
+				const policyNumber = document.getElementById("policy").value;
+				const emailId = document.getElementById("email").value;
+				const phoneNumber = document.getElementById("phone").value;
+
+				if (!policyNumber || !emailId || !phoneNumber) {
+					alert("Please enter all fields properly");
+					return;
+				}
+
+				try {
+					const response = await fetch("http://localhost:3000/create-meeting", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({ policyNumber, emailId, phoneNumber }),
+					});
+
+					alert("Zoom meeting created successfully");
+				} catch (e) {
+					alert(`Error ${e.message}`);
+				}
+			};
+		</script>
+	</body>
+
+	<style>
+		.form {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		input,
+		.send {
+			margin: 5px;
+			width: 200px;
+			height: 30px;
+		}
+
+		.send {
+			background-color: lightblue;
+		}
+	</style>
+</html>
