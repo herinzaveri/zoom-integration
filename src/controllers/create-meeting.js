@@ -3,7 +3,7 @@ module.exports = ({ createMeeting, Joi }) => {
 		const { policyNumber, phoneNumber, emailId } = req.body;
 
 		try {
-			validateInput({ policyNumber, phoneNumber, emailId });
+			// validateInput({ policyNumber, phoneNumber, emailId });
 
 			const response = await createMeeting({ policyNumber, phoneNumber, emailId });
 

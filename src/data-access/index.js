@@ -9,7 +9,7 @@ const connectFunction = async () => {
 	console.log("connected to mongoDB successfully");
 };
 
-connectFunction();
+// connectFunction();
 
 const addMeeting = async (args) => {
 	const data = new Data(args);
