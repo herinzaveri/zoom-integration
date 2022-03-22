@@ -15,6 +15,6 @@ app.get("/home", (req, res) => {
 
 app.use("/", router);
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Listening on port ${port}...`));
