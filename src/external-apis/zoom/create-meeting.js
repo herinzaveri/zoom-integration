@@ -11,6 +11,9 @@ module.exports = ({ axios, config }) => {
 			duration,
 			timezone,
 			agenda,
+			settings: {
+				auto_recording: "cloud",
+			},
 		};
 
 		return axios({
